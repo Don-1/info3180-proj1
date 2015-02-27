@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+from flask import Flask
 """Tests for the Flask Heroku template."""
 
 import unittest

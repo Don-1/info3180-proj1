@@ -5,11 +5,14 @@ Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
 
 This file creates your application.
 """
-
+import os
 from app import app
 from flask import render_template, request, redirect, url_for
-from flask.ext.wtf import Form
-from wtforms.fields import TextField
+from flask import Flask
+#from app import forms
+from .forms import ProfileForm
+#from flask.ext.wtf import Form
+#from wtforms.fields import TextField
 
 ###
 # Routing for your application.
@@ -20,10 +23,11 @@ def home():
     """Render website's home page."""
     return render_template('home.html')
 
+  
 @app.route('/profile', methods=["GET", "POST"])
 def profile():
   form = ProfileForm()
-  return "add a profile"
+  #return "add a profile"
   return render_template('profile.html', form=form)
   
 
