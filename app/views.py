@@ -20,9 +20,12 @@ def home():
     """Render website's home page."""
     return render_template('home.html')
 
-@app.route('/profile')
+@app.route('/profile', methods=["GET", "POST"])
 def profile():
+  form = ProfileForm()
   return "add a profile"
+  return render_template('profile.html', form=form)
+  
 
 @app.route('/profiles')
 def profiles():
