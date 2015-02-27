@@ -19,6 +19,17 @@ def home():
     """Render website's home page."""
     return render_template('home.html')
 
+@app.route('/profile')
+def profile():
+  return "add a profile"
+
+@app.route('/profiles')
+def profiles():
+  return "list all profiles"
+
+@app.route('/profile/<user_id>')
+def profile_view(user_id):
+  return "profile {}".format(user_id)
 
 @app.route('/about/')
 def about():
