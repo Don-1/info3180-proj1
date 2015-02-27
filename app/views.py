@@ -8,7 +8,8 @@ This file creates your application.
 
 from app import app
 from flask import render_template, request, redirect, url_for
-
+from flask.ext.wtf import Form
+from wtforms.fields import TextField
 
 ###
 # Routing for your application.
