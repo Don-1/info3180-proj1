@@ -9,10 +9,9 @@ import os
 from app import app
 from flask import render_template, request, redirect, url_for
 from flask import Flask
-#from app import forms
 from .forms import ProfileForm
-#from flask.ext.wtf import Form
-#from wtforms.fields import TextField
+from flask.ext.wtf import Form
+from wtforms.fields import TextField
 
 ###
 # Routing for your application.
@@ -27,6 +26,10 @@ def home():
 @app.route('/profile', methods=["GET", "POST"])
 def profile():
   form = ProfileForm()
+  if request.method == "POST":
+    first_name = request.form['first_name']
+    last_name = request.form['last_name']
+    return " {} {} this was a post".format(first_name,last_name)
   #return "add a profile"
   return render_template('profile.html', form=form)
   
